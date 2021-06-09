@@ -28,6 +28,7 @@ public class DemoTokenize {
 		List<Output> list=new ArrayList<Output>();
 		list.add(output);
 		String json = new Gson().toJson(list );
+		LOGGER.info("  ");
 		LOGGER.info(" ---------TOKENIZER DE TARJETAS TC------------- ");
 		LOGGER.info(json);
 			
