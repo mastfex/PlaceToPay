@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.google.gson.Gson;
 import com.request.autorizacion.GenerateAuth;
 
 import reactor.core.publisher.Mono;
@@ -26,14 +27,9 @@ public class DemoTokenize {
 		Output output = tokenizeWebClient(demo.getInput());
 		List<Output> list=new ArrayList<Output>();
 		list.add(output);
-		for(int i=0; i<list.size();i++) {
-			
-			LOGGER.info(list.get(i).getStatus().getMessage().toString());
-			LOGGER.info(list.get(i).getStatus().getDate().toString());
-			LOGGER.info(list.get(i).getInstrument().getToken().toString());
-			LOGGER.info(list.get(i).getProvider().toString());
-			
-		}
+		String json = new Gson().toJson(list );
+		LOGGER.info(" ---------TOKENIZER DE TARJETAS TC------------- ");
+		LOGGER.info(json);
 			
 	}
 	
