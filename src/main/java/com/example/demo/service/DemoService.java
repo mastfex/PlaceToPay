@@ -41,7 +41,6 @@ public class DemoService {
 		input.setPayer(payer);
 		input.setUserAgent(input.getUserAgent());
 		
-		
     	output = (Output) metodos.tokenizeWebClient(input);
     	return output;
     }
