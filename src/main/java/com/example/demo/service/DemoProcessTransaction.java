@@ -10,15 +10,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.google.gson.Gson;
-import com.request.autorizacion.GenerateAuth;
+import com.example.demo.request.autorizacion.GenerateAuth;
 
 import reactor.core.publisher.Mono;
-import transaction.request.Amount;
-import transaction.request.Input;
-import transaction.request.Instrument;
-import transaction.request.Payment;
-import transaction.request.Token;
-import transaction.response.Output;
+import com.example.demo.request.transaction.Amount;
+import com.example.demo.request.transaction.Input;
+import com.example.demo.request.transaction.Instrument;
+import com.example.demo.request.transaction.Payment;
+import com.example.demo.request.transaction.Token;
+import com.example.demo.response.transaction.Output;
 
 
 public class DemoProcessTransaction {

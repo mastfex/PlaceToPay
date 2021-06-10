@@ -1,6 +1,6 @@
 package com.example.demo.request.query;
 
-import com.request.autorizacion.Auth;
+import com.example.demo.request.autorizacion.Auth;
 
 public class InputQuery {
 	private Auth AuthObject;

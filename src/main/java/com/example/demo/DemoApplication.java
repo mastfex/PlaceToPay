@@ -16,14 +16,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import reactor.core.publisher.Mono;
-import request.Id.estructura.RequestInput;
-import request.create.estructura.Amount;
-import request.create.estructura.Auth;
-import request.create.estructura.Buyer;
-import request.create.estructura.CreateInput;
-import request.create.estructura.Payment;
-import response.Id.estructura.RequestOutput;
-import response.create.estructura.CreateOutput;
+import com.example.demo.request.id.estructura.RequestInput;
+import com.example.demo.request.create.estructura.Amount;
+import com.example.demo.request.create.estructura.Auth;
+import com.example.demo.request.create.estructura.Buyer;
+import com.example.demo.request.create.estructura.CreateInput;
+import com.example.demo.request.create.estructura.Payment;
+import com.example.demo.response.id.estructura.RequestOutput;
+import com.example.demo.response.create.estructura.CreateOutput;
 
 @SpringBootApplication
 public class DemoApplication {

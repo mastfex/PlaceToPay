@@ -10,16 +10,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.request.autorizacion.GenerateAuth;
+import com.example.demo.request.autorizacion.GenerateAuth;
 
-import query.request.InputQuery;
-import query.response.OutputQuery;
+import com.example.demo.request.query.InputQuery;
+import com.example.demo.response.query.OutputQuery;
 import reactor.core.publisher.Mono;
-import tokenize.request.Card;
-import tokenize.request.Input;
-import tokenize.request.Instrument;
-import tokenize.request.Payer;
-import tokenize.response.Output;
+import com.example.demo.request.tokenize.Card;
+import com.example.demo.request.tokenize.Input;
+import com.example.demo.request.tokenize.Instrument;
+import com.example.demo.request.tokenize.Payer;
+import com.example.demo.response.tokenize.Output;
 
 
 public class DemoQuery {

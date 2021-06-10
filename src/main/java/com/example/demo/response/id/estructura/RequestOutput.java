@@ -3,7 +3,7 @@ package com.example.demo.response.id.estructura;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import request.Id.estructura.Auth;
+import com.example.demo.request.id.estructura.Auth;
 
 @Data
 @NoArgsConstructor 
