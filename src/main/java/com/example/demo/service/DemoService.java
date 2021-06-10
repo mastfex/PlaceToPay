@@ -4,6 +4,7 @@ package com.example.demo.service;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.example.demo.response.query.OutputQuery;
 import com.example.demo.response.tokenize.Output;
 import com.example.demo.service.metodo.DemoMetodosService;
 import com.example.demo.utils.GenerateAuth;
@@ -54,16 +55,9 @@ public class DemoService {
 		GenerateAuth oauth=new GenerateAuth();
 		input.setAuth(oauth.getAuth());
 		input.setInternalReference(input.getInternalReference());
+		DemoMetodosService metodos=new DemoMetodosService();
 
-		WebClient clientFlux = WebClient.builder().baseUrl("https://test.placetopay.ec/rest").build();
-		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/query").build())
-				.body(Mono.just(input), com.example.demo.request.query.InputQuery.class)
-				.retrieve()
-				.bodyToMono(com.example.demo.response.query.OutputQuery.class)
-				.log()
-				.block();
-
-		output = (com.example.demo.response.query.OutputQuery) clientFlux;
+		output = (OutputQuery) metodos.queryWebClient(input);
 		
 		return output;
 	}

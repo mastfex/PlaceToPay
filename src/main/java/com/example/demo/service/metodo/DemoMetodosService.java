@@ -37,5 +37,16 @@ public class DemoMetodosService {
 				.block();
 
 	}
+    
+    public com.example.demo.response.query.OutputQuery queryWebClient(com.example.demo.request.query.InputQuery json) {
+    	WebClient clientFlux = WebClient.builder().baseUrl("https://test.placetopay.ec/rest").build();
+		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/query").build())
+				.body(Mono.just(input), com.example.demo.request.query.InputQuery.class)
+				.retrieve()
+				.bodyToMono(com.example.demo.response.query.OutputQuery.class)
+				.log()
+				.block();
+
+	}
 
 }
