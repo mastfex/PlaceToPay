@@ -30,11 +30,11 @@ public class DemoController {
     }
     
     @PostMapping("/tokenize")
-    public com.example.demo.request.tokenize.Input tokenizer(
+    public com.example.demo.response.tokenize.Output tokenizer(
          @RequestBody com.example.demo.request.tokenize.Input input
-    ){
+    ) throws Exception{
     	
-        return input;
+        return service.postTokenize(input);
     }
     
     @PostMapping("/process")

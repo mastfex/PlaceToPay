@@ -2,26 +2,23 @@ package com.example.demo.service;
 
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
 
-import com.example.demo.response.query.OutputQuery;
 import com.example.demo.response.tokenize.Output;
 import com.example.demo.service.metodo.DemoMetodosService;
 import com.example.demo.utils.GenerateAuth;
-
-import reactor.core.publisher.Mono;
 
 
 @Service
 public class DemoService {
     
+	DemoMetodosService metodos;
+
     public String Template(String Name){
         return "¡Hola " + Name + "!";
     }
     
-    public com.example.demo.response.tokenize.Output postTokenize(com.example.demo.request.tokenize.Input input){
+    public com.example.demo.response.tokenize.Output postTokenize(com.example.demo.request.tokenize.Input input) throws Exception{
     	com.example.demo.response.tokenize.Output output = new com.example.demo.response.tokenize.Output();
-    	DemoMetodosService metodos=new DemoMetodosService();
     	
     	com.example.demo.request.tokenize.Instrument instrument = new com.example.demo.request.tokenize.Instrument();
 		com.example.demo.request.tokenize.Card card=new com.example.demo.request.tokenize.Card();
@@ -55,9 +52,9 @@ public class DemoService {
 		GenerateAuth oauth=new GenerateAuth();
 		input.setAuth(oauth.getAuth());
 		input.setInternalReference(input.getInternalReference());
-		DemoMetodosService metodos=new DemoMetodosService();
+		
 
-		output = (OutputQuery) metodos.queryWebClient(input);
+		output = (com.example.demo.response.query.OutputQuery) metodos.queryWebClient(input);
 		
 		return output;
 	}
@@ -86,16 +83,8 @@ public class DemoService {
 		input.setPayment(payment);
 		input.setUserAgent(input.getUserAgent());
 
-		WebClient clientFlux = WebClient.builder().baseUrl("https://test.placetopay.ec/rest").build();
-		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/process").build())
-				.body(Mono.just(input), com.example.demo.request.transaction.Input.class)
-				.retrieve()
-				.bodyToMono(com.example.demo.response.transaction.Output.class)
-				.log()
-				.block();
+		output = (com.example.demo.response.transaction.Output) metodos.processWebClient(input);
 
-		
-		output = (com.example.demo.response.transaction.Output) clientFlux;
 		return output;
 	}
 
