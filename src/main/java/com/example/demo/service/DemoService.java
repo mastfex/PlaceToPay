@@ -1,17 +1,13 @@
 package com.example.demo.service;
 
+import org.springframework.stereotype.Service;
+
 import com.example.demo.request.tokenize.Card;
-import com.example.demo.request.tokenize.Input;
 import com.example.demo.request.tokenize.Instrument;
 import com.example.demo.request.tokenize.Payer;
 import com.example.demo.response.tokenize.Output;
+import com.example.demo.service.metodo.DemoMetodosService;
 import com.example.demo.utils.GenerateAuth;
-import com.fasterxml.jackson.core.sym.Name;
-
-import reactor.core.publisher.Mono;
-
-import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
 public class DemoService {
@@ -23,6 +19,7 @@ public class DemoService {
     
     public com.example.demo.response.tokenize.Output postTokenize(com.example.demo.request.tokenize.Input input){
     	com.example.demo.response.tokenize.Output output = new com.example.demo.response.tokenize.Output();
+    	DemoMetodosService metodos=new DemoMetodosService();
     	
     	Instrument instrument = new Instrument();
 		Card card=new Card();
@@ -44,15 +41,8 @@ public class DemoService {
 		input.setPayer(payer);
 		input.setUserAgent(input.getUserAgent());
 		
-		WebClient clientFlux = WebClient.builder().baseUrl("https://test.placetopay.ec/rest").build();
-		clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/tokenize").build())
-				.body(Mono.just(input), Input.class)
-				.retrieve()
-				.bodyToMono(Output.class)
-				.log()
-				.block();
-    	
-    	output = (Output) clientFlux;
+		
+    	output = (Output) metodos.tokenizeWebClient(input);
     	return output;
     }
 }
