@@ -1,6 +1,6 @@
 package com.example.demo.request.tokenize;
 
-import com.example.demo.request.autorizacion.Auth;
+import com.example.demo.domain.Auth;
 
 public class Input {
 	private Auth AuthObject;

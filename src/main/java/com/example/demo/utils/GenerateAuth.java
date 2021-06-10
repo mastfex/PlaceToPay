@@ -1,4 +1,4 @@
-package com.example.demo.request.autorizacion;
+package com.example.demo.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -7,6 +7,8 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
+
+import com.example.demo.domain.Auth;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

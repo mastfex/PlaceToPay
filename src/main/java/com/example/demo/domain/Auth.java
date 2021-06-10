@@ -1,4 +1,4 @@
-package com.example.demo.request.autorizacion;
+package com.example.demo.domain;
 
 public class Auth {
 	private String login;
