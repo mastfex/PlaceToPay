@@ -11,7 +11,7 @@ import com.example.demo.utils.GenerateAuth;
 @Service
 public class DemoService {
     
-	DemoMetodosService metodos;
+	DemoMetodosService metodos = new DemoMetodosService();
 
     public String Template(String Name){
         return "¡Hola " + Name + "!";
@@ -19,27 +19,7 @@ public class DemoService {
     
     public com.example.demo.response.tokenize.Output postTokenize(com.example.demo.request.tokenize.Input input) throws Exception{
     	com.example.demo.response.tokenize.Output output = new com.example.demo.response.tokenize.Output();
-    	
-    	com.example.demo.request.tokenize.Instrument instrument = new com.example.demo.request.tokenize.Instrument();
-		com.example.demo.request.tokenize.Card card=new com.example.demo.request.tokenize.Card();
-		com.example.demo.request.tokenize.Payer payer = new com.example.demo.request.tokenize.Payer();
-		
-		GenerateAuth oauth=new GenerateAuth();
-		input.setAuth(oauth.getAuth());
-		card.setNumber(input.getInstrument().getCard().getNumber());
-		card.setCvv(input.getInstrument().getCard().getCvv());
-		card.setExpirationMonth(input.getInstrument().getCard().getExpirationMonth());
-		card.setExpirationYear((input.getInstrument().getCard().getExpirationYear()));   
-		instrument.setCard(card);
-		instrument.setOtp("");
-		input.setInstrument(instrument);
-		input.setIpAddress(input.getIpAddress());
-		payer.setName(input.getPayer().getName());
-		payer.setSurname(input.getPayer().getSurname());
-		payer.setEmail(input.getPayer().getEmail());
-		input.setPayer(payer);
-		input.setUserAgent(input.getUserAgent());
-		
+
     	output = (Output) metodos.tokenizeWebClient(input);
 
     	return output;

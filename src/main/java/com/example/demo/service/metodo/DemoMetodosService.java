@@ -10,9 +10,10 @@ public class DemoMetodosService {
 		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/tokenize").build())
 				.body(Mono.just(json), com.example.demo.request.tokenize.Input.class)
 				.retrieve()
-				.bodyToMono(com.example.demo.response.tokenize.Output.class)
+				.bodyToFlux(com.example.demo.response.tokenize.Output.class)
 				.log()
-				.block();
+				.blockFirst();
+
 
 	}
 
