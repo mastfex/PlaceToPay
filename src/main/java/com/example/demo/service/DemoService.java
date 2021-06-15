@@ -20,7 +20,7 @@ public class DemoService {
     public com.example.demo.response.tokenize.Output postTokenize(com.example.demo.request.tokenize.Input input) throws Exception{
     	com.example.demo.response.tokenize.Output output = new com.example.demo.response.tokenize.Output();
 
-    	output = (Output) metodos.tokenizeWebClient(input);
+    	//output = (Output) metodos.tokenizeWebClient(input);
 
     	return output;
     }
@@ -63,7 +63,7 @@ public class DemoService {
 		input.setPayment(payment);
 		input.setUserAgent(input.getUserAgent());
 
-		output = (com.example.demo.response.transaction.Output) metodos.processWebClient(input);
+		//output = (com.example.demo.response.transaction.Output) metodos.processWebClient(input);
 
 		return output;
 	}
