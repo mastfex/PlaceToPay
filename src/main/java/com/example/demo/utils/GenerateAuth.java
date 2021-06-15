@@ -47,7 +47,7 @@ public class GenerateAuth {
 	}
 	
 	static byte[] sha1(String input) throws NoSuchAlgorithmException {
-		MessageDigest mDigest = MessageDigest.getInstance("SHA256");
+		final MessageDigest mDigest = MessageDigest.getInstance("SHA-256");
 		return mDigest.digest(input.getBytes());
 	}
 

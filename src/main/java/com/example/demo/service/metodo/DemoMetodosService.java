@@ -4,13 +4,11 @@ import java.util.List;
 
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.example.demo.response.tokenize.Output;
-
 import reactor.core.publisher.Mono;
 
 public class DemoMetodosService {
     
-    public Mono<List<Output>> tokenizeWebClient(com.example.demo.request.tokenize.Input json) {
+    public Mono<List<com.example.demo.response.tokenize.Output>> tokenizeWebClient(com.example.demo.request.tokenize.Input json) {
 		WebClient clientFlux = WebClient.builder().baseUrl("https://test.placetopay.ec/rest").build();
 		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/tokenize").build())
 				.body(Mono.just(json), com.example.demo.request.tokenize.Input.class)

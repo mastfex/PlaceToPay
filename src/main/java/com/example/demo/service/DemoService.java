@@ -3,7 +3,10 @@ package com.example.demo.service;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.response.tokenize.Output;
+import reactor.core.publisher.Mono;
+
+import java.util.List;
+
 import com.example.demo.service.metodo.DemoMetodosService;
 import com.example.demo.utils.GenerateAuth;
 
@@ -17,13 +20,14 @@ public class DemoService {
         return "¡Hola " + Name + "!";
     }
     
-    public com.example.demo.response.tokenize.Output postTokenize(com.example.demo.request.tokenize.Input input) throws Exception{
-    	com.example.demo.response.tokenize.Output output = new com.example.demo.response.tokenize.Output();
-
-    	//output = (Output) metodos.tokenizeWebClient(input);
-
+    public Mono<List<com.example.demo.response.tokenize.Output>> postTokenize(com.example.demo.request.tokenize.Input input) throws Exception{
+	
+		GenerateAuth oauth=new GenerateAuth();
+		input.setAuth(oauth.getAuth());
+		Mono<List<com.example.demo.response.tokenize.Output>> output = metodos.tokenizeWebClient(input);
     	return output;
-    }
+    
+	}
 
 	public com.example.demo.response.query.OutputQuery getQuery(com.example.demo.request.query.InputQuery input) {
 
