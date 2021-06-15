@@ -1,5 +1,7 @@
 package com.example.demo.response.query;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class OutputQuery {
 	private Status StatusObject;
 	private String date;
@@ -10,6 +12,8 @@ public class OutputQuery {
 	private String franchise;
 	private String franchiseName;
 	private String issuerName;
+	
+	@JsonProperty("amount")
 	private Amount amount;
 	
 

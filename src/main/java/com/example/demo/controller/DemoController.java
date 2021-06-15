@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import com.example.demo.request.query.InputQuery;
+import com.example.demo.response.query.OutputQuery;
 import com.example.demo.service.DemoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,13 @@ public class DemoController {
          @RequestBody com.example.demo.request.transaction.Input input
     ){
         return input;
+    }
+    
+    @GetMapping("/query")
+    public Mono<List<OutputQuery>> query(
+    		@RequestBody InputQuery input
+    ){
+    	return service.getQuery(input);
     }
 
 }

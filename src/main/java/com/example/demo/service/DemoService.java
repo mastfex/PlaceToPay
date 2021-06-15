@@ -1,14 +1,16 @@
 package com.example.demo.service;
 
 
-import org.springframework.stereotype.Service;
-
-import reactor.core.publisher.Mono;
-
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.example.demo.request.query.InputQuery;
+import com.example.demo.response.query.OutputQuery;
 import com.example.demo.service.metodo.DemoMetodosService;
 import com.example.demo.utils.GenerateAuth;
+
+import reactor.core.publisher.Mono;
 
 
 @Service
@@ -29,16 +31,16 @@ public class DemoService {
     
 	}
 
-	public com.example.demo.response.query.OutputQuery getQuery(com.example.demo.request.query.InputQuery input) {
+	public Mono<List<OutputQuery>> getQuery(InputQuery input) {
 
-		com.example.demo.response.query.OutputQuery output = new com.example.demo.response.query.OutputQuery();
+		Mono<List<OutputQuery>> output;
 
 		GenerateAuth oauth=new GenerateAuth();
 		input.setAuth(oauth.getAuth());
 		input.setInternalReference(input.getInternalReference());
 		
 
-		output = (com.example.demo.response.query.OutputQuery) metodos.queryWebClient(input);
+		output = metodos.queryWebClient(input);
 		
 		return output;
 	}
