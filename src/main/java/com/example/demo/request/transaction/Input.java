@@ -1,19 +1,26 @@
 package com.example.demo.request.transaction;
 
 import com.example.demo.domain.Auth;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Input {
 	private Auth auth;
+	
+	@JsonProperty("payment")
 	private Payment payment;
+	
+	@JsonProperty("instrument")
 	private Instrument instrument;
+	
 	private String ipAddress;
     private String userAgent;
     private String additional;
     
 	public Input() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+
+
 
 	public Input(Auth auth, Payment payment, Instrument instrument, String ipAddress, String userAgent,
 			String additional) {
@@ -25,6 +32,8 @@ public class Input {
 		this.userAgent = userAgent;
 		this.additional = additional;
 	}
+
+
 
 	public Auth getAuth() {
 		return auth;
@@ -41,6 +50,7 @@ public class Input {
 	public void setPayment(Payment payment) {
 		this.payment = payment;
 	}
+
 
 	public Instrument getInstrument() {
 		return instrument;
@@ -73,6 +83,10 @@ public class Input {
 	public void setAdditional(String additional) {
 		this.additional = additional;
 	}
+	
+	
+    
+
     
 	
     

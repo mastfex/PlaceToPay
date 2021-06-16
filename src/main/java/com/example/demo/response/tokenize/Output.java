@@ -1,8 +1,12 @@
 package com.example.demo.response.tokenize;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Output {
+	@JsonProperty("StatusObject")
 	private Status StatusObject;
 	private String provider;
+	@JsonProperty("InstrumentObject")
 	private Instrument InstrumentObject;
 
 	// Getter Methods

@@ -44,10 +44,10 @@ public class DemoController {
     }
     
     @PostMapping("/process")
-    public com.example.demo.request.transaction.Input processTransaction(
+    public Mono<List<com.example.demo.response.transaction.Output>> processTransaction(
          @RequestBody com.example.demo.request.transaction.Input input
     ){
-        return input;
+    	return service.postProcess(input);
     }
     
     @GetMapping("/query")
