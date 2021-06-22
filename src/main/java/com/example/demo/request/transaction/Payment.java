@@ -1,5 +1,7 @@
 package com.example.demo.request.transaction;
 
+import com.example.demo.domain.Amount;
+
 public class Payment {
 	private String reference;
 	private	String description;

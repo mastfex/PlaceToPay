@@ -11,13 +11,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.example.demo.utils.GenerateAuth;
-
+import com.example.demo.domain.Instrument;
 import com.example.demo.request.query.InputQuery;
 import com.example.demo.response.query.OutputQuery;
 import reactor.core.publisher.Mono;
 import com.example.demo.request.tokenize.Card;
 import com.example.demo.request.tokenize.Input;
-import com.example.demo.request.tokenize.Instrument;
 import com.example.demo.request.tokenize.Payer;
 import com.example.demo.response.tokenize.Output;
 

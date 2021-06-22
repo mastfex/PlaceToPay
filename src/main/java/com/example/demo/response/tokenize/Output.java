@@ -1,5 +1,7 @@
 package com.example.demo.response.tokenize;
 
+import com.example.demo.domain.Instrument;
+import com.example.demo.domain.Status;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Output {

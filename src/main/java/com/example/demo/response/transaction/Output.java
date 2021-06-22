@@ -1,5 +1,8 @@
 package com.example.demo.response.transaction;
 
+import com.example.demo.domain.Amount;
+import com.example.demo.domain.Status;
+
 public class Output {
 	private String date;
 	private String franchise;

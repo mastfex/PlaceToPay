@@ -23,18 +23,6 @@ public class DemoController {
     @Autowired
     private DemoService service;
 
-    /**
-     * Template para futuras creaciones
-     * @param Nombre
-     * @return
-     */ 
-    @GetMapping("/template")
-    public String template(
-         @RequestParam(name = "nombre", required = true) String Nombre
-    ){
-        return service.Template(Nombre);
-    }
-    
     @PostMapping("/tokenize")
     public Mono<List<com.example.demo.response.tokenize.Output>> tokenizer(
          @RequestBody com.example.demo.request.tokenize.Input input

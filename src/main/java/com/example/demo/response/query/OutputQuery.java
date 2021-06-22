@@ -1,5 +1,7 @@
 package com.example.demo.response.query;
 
+import com.example.demo.domain.Amount;
+import com.example.demo.domain.Status;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class OutputQuery {

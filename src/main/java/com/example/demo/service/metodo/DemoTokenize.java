@@ -13,9 +13,10 @@ import com.google.gson.Gson;
 import com.example.demo.utils.GenerateAuth;
 
 import reactor.core.publisher.Mono;
+
+import com.example.demo.domain.Instrument;
 import com.example.demo.request.tokenize.Card;
 import com.example.demo.request.tokenize.Input;
-import com.example.demo.request.tokenize.Instrument;
 import com.example.demo.request.tokenize.Payer;
 import com.example.demo.response.tokenize.Output;
 
