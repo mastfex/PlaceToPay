@@ -1,9 +1,12 @@
-package com.example.demo.response.transaction;
+package com.example.demo.response;
 
+import com.example.demo.domain.Additional;
 import com.example.demo.domain.Amount;
+import com.example.demo.domain.Conversion;
+import com.example.demo.domain.ProcessorFields;
 import com.example.demo.domain.Status;
 
-public class Output {
+public class ProcessResponse {
 	private String date;
 	private String franchise;
 	private Amount amount;

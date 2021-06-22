@@ -1,4 +1,4 @@
-package com.example.demo.response.transaction;
+package com.example.demo.domain;
 
 public class ProcessorFields {
 	private String b24;

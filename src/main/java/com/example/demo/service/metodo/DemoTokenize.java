@@ -14,19 +14,19 @@ import com.example.demo.utils.GenerateAuth;
 
 import reactor.core.publisher.Mono;
 
+import com.example.demo.domain.Card;
 import com.example.demo.domain.Instrument;
-import com.example.demo.request.tokenize.Card;
-import com.example.demo.request.tokenize.Input;
-import com.example.demo.request.tokenize.Payer;
-import com.example.demo.response.tokenize.Output;
+import com.example.demo.domain.Payer;
+import com.example.demo.request.TokenizeRequest;
+import com.example.demo.response.TokenizeResponse;
 
 public class DemoTokenize {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DemoTokenize.class);
 	
 	public static void main(String[] args) throws NoSuchAlgorithmException {
 		DemoTokenize demo=new DemoTokenize();
-		Output output = tokenizeWebClient(demo.getInput());
-		List<Output> list=new ArrayList<Output>();
+		TokenizeResponse output = tokenizeWebClient(demo.getInput());
+		List<TokenizeResponse> list=new ArrayList<TokenizeResponse>();
 		list.add(output);
 		String json = new Gson().toJson(list );
 		LOGGER.info("  ");
@@ -35,8 +35,8 @@ public class DemoTokenize {
 			
 	}
 	
-	public Input getInput() {
-		Input input = new Input();
+	public TokenizeRequest getInput() {
+		TokenizeRequest input = new TokenizeRequest();
 		Instrument instrument = new Instrument();
 		Card card=new Card();
 		Payer payer = new Payer();
@@ -59,12 +59,12 @@ public class DemoTokenize {
 		return input;
 	}
 	
-	private static Output tokenizeWebClient(Input json) {
+	private static TokenizeResponse tokenizeWebClient(TokenizeRequest json) {
 		WebClient clientFlux = WebClient.builder().baseUrl("https://test.placetopay.ec/rest").build();
 		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/tokenize").build())
-				.body(Mono.just(json), Input.class)
+				.body(Mono.just(json), TokenizeRequest.class)
 				.retrieve()
-				.bodyToMono(Output.class)
+				.bodyToMono(TokenizeResponse.class)
 				.log()
 				.block();
 

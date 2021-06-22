@@ -1,8 +1,8 @@
-package com.example.demo.request.query;
+package com.example.demo.request;
 
 import com.example.demo.domain.Auth;
 
-public class InputQuery {
+public class QueryRequest {
 	private Auth AuthObject;
 	private String internalReference;
 

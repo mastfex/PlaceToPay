@@ -1,10 +1,11 @@
-package com.example.demo.request.transaction;
+package com.example.demo.request;
 
 import com.example.demo.domain.Auth;
 import com.example.demo.domain.Instrument;
+import com.example.demo.domain.Payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Input {
+public class ProcessRequest {
 	private Auth auth;
 	
 	@JsonProperty("payment")
@@ -17,13 +18,13 @@ public class Input {
     private String userAgent;
     private String additional;
     
-	public Input() {
+	public ProcessRequest() {
 		super();
 	}
 
 
 
-	public Input(Auth auth, Payment payment, Instrument instrument, String ipAddress, String userAgent,
+	public ProcessRequest(Auth auth, Payment payment, Instrument instrument, String ipAddress, String userAgent,
 			String additional) {
 		super();
 		this.auth = auth;

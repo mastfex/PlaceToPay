@@ -2,8 +2,8 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import com.example.demo.request.query.InputQuery;
-import com.example.demo.response.query.OutputQuery;
+import com.example.demo.request.QueryRequest;
+import com.example.demo.response.QueryResponse;
 import com.example.demo.service.DemoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,23 +24,23 @@ public class DemoController {
     private DemoService service;
 
     @PostMapping("/tokenize")
-    public Mono<List<com.example.demo.response.tokenize.Output>> tokenizer(
-         @RequestBody com.example.demo.request.tokenize.Input input
+    public Mono<List<com.example.demo.response.TokenizeResponse>> tokenizer(
+         @RequestBody com.example.demo.request.TokenizeRequest input
     ) throws Exception{
     	
         return service.postTokenize(input);
     }
     
     @PostMapping("/process")
-    public Mono<List<com.example.demo.response.transaction.Output>> processTransaction(
-         @RequestBody com.example.demo.request.transaction.Input input
+    public Mono<List<com.example.demo.response.ProcessResponse>> processTransaction(
+         @RequestBody com.example.demo.request.ProcessRequest input
     ){
     	return service.postProcess(input);
     }
     
     @GetMapping("/query")
-    public Mono<List<OutputQuery>> query(
-    		@RequestBody InputQuery input
+    public Mono<List<QueryResponse>> query(
+    		@RequestBody QueryRequest input
     ){
     	return service.getQuery(input);
     }

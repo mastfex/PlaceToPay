@@ -1,4 +1,4 @@
-package com.example.demo.response.transaction;
+package com.example.demo.domain;
 
 public class Conversion {
 	private From from;

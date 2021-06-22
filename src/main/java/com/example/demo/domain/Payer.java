@@ -1,4 +1,4 @@
-package com.example.demo.request.tokenize;
+package com.example.demo.domain;
 
 public class Payer {
 	private String name;

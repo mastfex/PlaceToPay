@@ -11,14 +11,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.example.demo.utils.GenerateAuth;
+import com.example.demo.domain.Card;
 import com.example.demo.domain.Instrument;
-import com.example.demo.request.query.InputQuery;
-import com.example.demo.response.query.OutputQuery;
+import com.example.demo.domain.Payer;
+
 import reactor.core.publisher.Mono;
-import com.example.demo.request.tokenize.Card;
-import com.example.demo.request.tokenize.Input;
-import com.example.demo.request.tokenize.Payer;
-import com.example.demo.response.tokenize.Output;
+
+import com.example.demo.request.QueryRequest;
+import com.example.demo.request.TokenizeRequest;
+import com.example.demo.response.QueryResponse;
+import com.example.demo.response.TokenizeResponse;
 
 
 public class DemoQuery {
@@ -26,8 +28,8 @@ public class DemoQuery {
 	
 	public static void main(String[] args) throws NoSuchAlgorithmException {
 		DemoQuery demo=new DemoQuery();
-		OutputQuery output = tokenizeWebClient(demo.getInput());
-		List<OutputQuery> list=new ArrayList<OutputQuery>();
+		QueryResponse output = tokenizeWebClient(demo.getInput());
+		List<QueryResponse> list=new ArrayList<QueryResponse>();
 		list.add(output);
 		String json = new Gson().toJson(list );
 		LOGGER.info("  ");
@@ -36,8 +38,8 @@ public class DemoQuery {
 			
 	}
 	
-	public InputQuery getInput() {
-		InputQuery input = new InputQuery();
+	public QueryRequest getInput() {
+		QueryRequest input = new QueryRequest();
 		
 		GenerateAuth oauth=new GenerateAuth();
 		input.setAuth(oauth.getAuth());
@@ -47,12 +49,12 @@ public class DemoQuery {
 		return input;
 	}
 	
-	private static OutputQuery tokenizeWebClient(InputQuery json) {
+	private static QueryResponse tokenizeWebClient(QueryRequest json) {
 		WebClient clientFlux = WebClient.builder().baseUrl("https://test.placetopay.ec/rest").build();
 		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/query").build())
-				.body(Mono.just(json), InputQuery.class)
+				.body(Mono.just(json), QueryRequest.class)
 				.retrieve()
-				.bodyToMono(OutputQuery.class)
+				.bodyToMono(QueryResponse.class)
 				.log()
 				.block();
 

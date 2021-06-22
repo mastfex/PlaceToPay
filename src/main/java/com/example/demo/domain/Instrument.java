@@ -1,7 +1,5 @@
 package com.example.demo.domain;
 
-import com.example.demo.request.tokenize.Card;
-
 public class Instrument {
 	private Card CardObject;
 	private String otp;

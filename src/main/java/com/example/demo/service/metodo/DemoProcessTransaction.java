@@ -10,10 +10,10 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.example.demo.domain.Amount;
 import com.example.demo.domain.Instrument;
+import com.example.demo.domain.Payment;
 import com.example.demo.domain.Token;
-import com.example.demo.request.transaction.Input;
-import com.example.demo.request.transaction.Payment;
-import com.example.demo.response.transaction.Output;
+import com.example.demo.request.ProcessRequest;
+import com.example.demo.response.ProcessResponse;
 import com.example.demo.utils.GenerateAuth;
 import com.google.gson.Gson;
 
@@ -25,8 +25,8 @@ public class DemoProcessTransaction {
 	
 	public static void main(String[] args) throws NoSuchAlgorithmException {
 		DemoProcessTransaction demo=new DemoProcessTransaction();
-		Output output = processWebClient(demo.getInput());
-		List<Output> list=new ArrayList<Output>();
+		ProcessResponse output = processWebClient(demo.getInput());
+		List<ProcessResponse> list=new ArrayList<ProcessResponse>();
 		list.add(output);
 		String json = new Gson().toJson(list );
 		LOGGER.info("  ");
@@ -35,8 +35,8 @@ public class DemoProcessTransaction {
 			
 	}
 	
-	public Input getInput() {
-		Input input = new Input();
+	public ProcessRequest getInput() {
+		ProcessRequest input = new ProcessRequest();
 		Instrument instrument = new Instrument();
 		Payment payment=new Payment();
 		Amount amount= new Amount();
@@ -61,12 +61,12 @@ public class DemoProcessTransaction {
 		return input;
 	}
 	
-	private static Output processWebClient(Input json) {
+	private static ProcessResponse processWebClient(ProcessRequest json) {
 		WebClient clientFlux = WebClient.builder().baseUrl("https://test.placetopay.ec/rest").build();
 		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/process").build())
-				.body(Mono.just(json), Input.class)
+				.body(Mono.just(json), ProcessRequest.class)
 				.retrieve()
-				.bodyToMono(Output.class)
+				.bodyToMono(ProcessResponse.class)
 				.log()
 				.block();
 

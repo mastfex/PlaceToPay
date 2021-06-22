@@ -1,4 +1,4 @@
-package com.example.demo.response.transaction;
+package com.example.demo.domain;
 
 public class Additional {
 	private String terminalNumber;

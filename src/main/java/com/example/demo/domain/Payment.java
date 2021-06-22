@@ -1,6 +1,4 @@
-package com.example.demo.request.transaction;
-
-import com.example.demo.domain.Amount;
+package com.example.demo.domain;
 
 public class Payment {
 	private String reference;

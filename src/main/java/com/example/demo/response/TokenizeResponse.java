@@ -1,10 +1,10 @@
-package com.example.demo.response.tokenize;
+package com.example.demo.response;
 
 import com.example.demo.domain.Instrument;
 import com.example.demo.domain.Status;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Output {
+public class TokenizeResponse {
 	@JsonProperty("StatusObject")
 	private Status StatusObject;
 	private String provider;

@@ -1,9 +1,10 @@
-package com.example.demo.request.tokenize;
+package com.example.demo.request;
 
 import com.example.demo.domain.Auth;
 import com.example.demo.domain.Instrument;
+import com.example.demo.domain.Payer;
 
-public class Input {
+public class TokenizeRequest {
 	private Auth AuthObject;
 	private Payer PayerObject;
 	private Instrument InstrumentObject;

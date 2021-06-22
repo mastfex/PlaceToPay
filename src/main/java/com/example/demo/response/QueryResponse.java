@@ -1,10 +1,10 @@
-package com.example.demo.response.query;
+package com.example.demo.response;
 
 import com.example.demo.domain.Amount;
 import com.example.demo.domain.Status;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class OutputQuery {
+public class QueryResponse {
 	private Status StatusObject;
 	private String date;
 	private String transactionDate;

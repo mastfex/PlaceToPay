@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.request.query.InputQuery;
-import com.example.demo.response.query.OutputQuery;
+import com.example.demo.request.QueryRequest;
+import com.example.demo.response.QueryResponse;
 import com.example.demo.service.metodo.DemoMetodosService;
 import com.example.demo.utils.GenerateAuth;
 
@@ -20,18 +20,18 @@ public class DemoService {
 
 
     
-    public Mono<List<com.example.demo.response.tokenize.Output>> postTokenize(com.example.demo.request.tokenize.Input input) throws Exception{
+    public Mono<List<com.example.demo.response.TokenizeResponse>> postTokenize(com.example.demo.request.TokenizeRequest input) throws Exception{
 	
 		GenerateAuth oauth=new GenerateAuth();
 		input.setAuth(oauth.getAuth());
-		Mono<List<com.example.demo.response.tokenize.Output>> output = metodos.tokenizeWebClient(input);
+		Mono<List<com.example.demo.response.TokenizeResponse>> output = metodos.tokenizeWebClient(input);
     	return output;
     
 	}
 
-	public Mono<List<OutputQuery>> getQuery(InputQuery input) {
+	public Mono<List<QueryResponse>> getQuery(QueryRequest input) {
 
-		Mono<List<OutputQuery>> output;
+		Mono<List<QueryResponse>> output;
 
 		GenerateAuth oauth=new GenerateAuth();
 		input.setAuth(oauth.getAuth());
@@ -43,14 +43,14 @@ public class DemoService {
 		return output;
 	}
 
-	public Mono<List<com.example.demo.response.transaction.Output>> postProcess(com.example.demo.request.transaction.Input input){
+	public Mono<List<com.example.demo.response.ProcessResponse>> postProcess(com.example.demo.request.ProcessRequest input){
 
 	
 		GenerateAuth oauth=new GenerateAuth();
 		input.setAuth(oauth.getAuth());
 
 
-		Mono<List<com.example.demo.response.transaction.Output>> output = metodos.processWebClient(input);
+		Mono<List<com.example.demo.response.ProcessResponse>> output = metodos.processWebClient(input);
 
 		return output;
 	}

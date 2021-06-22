@@ -1,4 +1,4 @@
-package com.example.demo.response.query;
+package com.example.demo.domain;
 
 public class Taxes {
 	
