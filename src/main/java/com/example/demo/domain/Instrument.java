@@ -1,7 +1,7 @@
 package com.example.demo.domain;
 
 public class Instrument {
-	private Card CardObject;
+	private Card card;
 	private String otp;
 	private Token token;
 	
@@ -19,9 +19,9 @@ public class Instrument {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Instrument(Card cardObject, String otp, Token token) {
+	public Instrument(Card card, String otp, Token token) {
 		super();
-		CardObject = cardObject;
+		this.card = card;
 		this.otp = otp;
 		this.token = token;
 	}
@@ -31,7 +31,7 @@ public class Instrument {
 	}
 
 	public Card getCard() {
-		return CardObject;
+		return card;
 	}
 
 	public String getOtp() {
@@ -40,8 +40,8 @@ public class Instrument {
 
 	// Setter Methods
 
-	public void setCard(Card cardObject) {
-		this.CardObject = cardObject;
+	public void setCard(Card card) {
+		this.card = card;
 	}
 
 	public void setOtp(String otp) {
