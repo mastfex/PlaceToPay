@@ -50,7 +50,7 @@ public class DemoProcessTransaction {
 		input.setInstrument(instrument);
 		input.setIpAddress("157.100.171.150");
 		amount.setCurrency("USD");
-		amount.setTotal(20000);
+		amount.setTotal("20000");
 		payment.setAmount(amount);
 		payment.setDescription("Compra pasajes");
 		payment.setReference("airline_test_2122694894");

@@ -2,12 +2,12 @@ package com.example.demo.domain;
 
 public class Amount {
 	private String currency;
-    private int total;
+    private String total;
 	public Amount() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Amount(String currency, int total) {
+	public Amount(String currency, String total) {
 		super();
 		this.currency = currency;
 		this.total = total;
@@ -18,10 +18,10 @@ public class Amount {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-	public int getTotal() {
+	public String getTotal() {
 		return total;
 	}
-	public void setTotal(int total) {
+	public void setTotal(String total) {
 		this.total = total;
 	}
     
