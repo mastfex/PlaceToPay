@@ -1,27 +1,27 @@
 package com.example.demo.request;
 
-import com.example.demo.domain.Amount;
 import com.example.demo.domain.Auth;
-import com.example.demo.domain.Card;
 import com.example.demo.domain.Instrument;
 import com.example.demo.domain.Payment;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonInclude(JsonInclude.Include.NON_NULL) 
 public class MpiLookupRequest {
-	
+	@JsonProperty("auth")
 	private Auth auth;
-	private Amount amount;
+	@JsonProperty("payment")
 	private Payment payment;
-	private Card card;
+	@JsonProperty("instrument")
 	private Instrument instrument;
+	@JsonProperty("returnUrl")
 	private String returnUrl;
 
-	public MpiLookupRequest(Auth auth, Amount amount, Payment payment, Card card, Instrument instrument,
+	public MpiLookupRequest(Auth auth, Payment payment, Instrument instrument,
 			String returnUrl) {
 		super();
 		this.auth = auth;
-		this.amount = amount;
 		this.payment = payment;
-		this.card = card;
 		this.instrument = instrument;
 		this.returnUrl = returnUrl;
 	}
@@ -39,28 +39,12 @@ public class MpiLookupRequest {
 		this.auth = auth;
 	}
 
-	public Amount getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Amount amount) {
-		this.amount = amount;
-	}
-
 	public Payment getPayment() {
 		return payment;
 	}
 
 	public void setPayment(Payment payment) {
 		this.payment = payment;
-	}
-
-	public Card getCard() {
-		return card;
-	}
-
-	public void setCard(Card card) {
-		this.card = card;
 	}
 
 	public Instrument getInstrument() {

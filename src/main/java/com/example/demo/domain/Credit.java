@@ -6,7 +6,20 @@ public class Credit {
     private String type;
     private String groupCode;
 
-    public String getCode ()
+    public Credit(String code, String installments, String type, String groupCode) {
+		super();
+		this.code = code;
+		this.installments = installments;
+		this.type = type;
+		this.groupCode = groupCode;
+	}
+
+	public Credit() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getCode ()
     {
         return code;
     }

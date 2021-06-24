@@ -1,8 +1,12 @@
 package com.example.demo.request;
 
 import com.example.demo.domain.Auth;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonInclude(JsonInclude.Include.NON_NULL) 
 public class QueryRequest {
+	@JsonProperty("auth")
 	private Auth AuthObject;
 	private String internalReference;
 

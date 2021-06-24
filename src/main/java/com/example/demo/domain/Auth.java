@@ -5,9 +5,22 @@ public class Auth {
 	private String tranKey;
 	private String nonce;
 	private String seed;
+	
+
+	public Auth() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Auth(String login, String tranKey, String nonce, String seed) {
+		super();
+		this.login = login;
+		this.tranKey = tranKey;
+		this.nonce = nonce;
+		this.seed = seed;
+	}
 
 	// Getter Methods
-
 	public String getLogin() {
 		return login;
 	}

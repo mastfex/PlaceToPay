@@ -2,15 +2,15 @@ package com.example.demo.response;
 
 import com.example.demo.domain.Data;
 import com.example.demo.domain.Status;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MpiLookupResponse {
+	@JsonProperty("status")
 	private Status status;
-	private Data data;
 	
-	public MpiLookupResponse(Status status, Data data) {
+	public MpiLookupResponse(Status status) {
 		super();
 		this.status = status;
-		this.data = data;
 	}
 
 	public MpiLookupResponse() {
@@ -26,12 +26,4 @@ public class MpiLookupResponse {
 		this.status = status;
 	}
 
-	public Data getData() {
-		return data;
-	}
-
-	public void setData(Data data) {
-		this.data = data;
-	}
-	
 }

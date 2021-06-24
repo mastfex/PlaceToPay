@@ -1,19 +1,16 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+@JsonInclude(JsonInclude.Include.NON_NULL) 
 public class Instrument {
+	@JsonProperty("card")
 	private Card card;
+	@JsonProperty("otp")
 	private String otp;
+	@JsonProperty("token")
 	private Token token;
-	
 
-	// Getter Methods
-	
-	
-
-	public Token getToken() {
-		return token;
-	}
-	
 	public Instrument() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -25,6 +22,12 @@ public class Instrument {
 		this.otp = otp;
 		this.token = token;
 	}
+	
+	// Getter Methods
+	public Token getToken() {
+		return token;
+	}
+	
 
 	public void setToken(Token token) {
 		this.token = token;

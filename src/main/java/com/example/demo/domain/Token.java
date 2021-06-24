@@ -9,7 +9,24 @@ public class Token {
 	private String lastDigits;
 	private String validUntil;
 
+	public Token(String token, String subtoken, String franchise, String franchiseName, String issuerName,
+			String lastDigits, String validUntil) {
+		super();
+		this.token = token;
+		this.subtoken = subtoken;
+		this.franchise = franchise;
+		this.franchiseName = franchiseName;
+		this.issuerName = issuerName;
+		this.lastDigits = lastDigits;
+		this.validUntil = validUntil;
+	}
+
 	// Getter Methods
+
+	public Token() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public String getToken() {
 		return token;

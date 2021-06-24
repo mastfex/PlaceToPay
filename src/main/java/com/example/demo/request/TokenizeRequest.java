@@ -3,26 +3,48 @@ package com.example.demo.request;
 import com.example.demo.domain.Auth;
 import com.example.demo.domain.Instrument;
 import com.example.demo.domain.Payer;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonInclude(JsonInclude.Include.NON_NULL) 
 public class TokenizeRequest {
-	private Auth AuthObject;
-	private Payer PayerObject;
-	private Instrument InstrumentObject;
+	@JsonProperty("auth")
+	private Auth auth;
+	@JsonProperty("payer")
+	private Payer payer;
+	@JsonProperty("instrument")
+	private Instrument instrument;
 	private String ipAddress;
 	private String userAgent;
 
-	// Getter Methods
 
+	
+	public TokenizeRequest(Auth auth, Payer payer, Instrument instrument, String ipAddress, String userAgent) {
+		super();
+		this.auth = auth;
+		this.payer = payer;
+		this.instrument = instrument;
+		this.ipAddress = ipAddress;
+		this.userAgent = userAgent;
+	}
+
+	
+	public TokenizeRequest() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	// Getter Methods
 	public Auth getAuth() {
-		return AuthObject;
+		return auth;
 	}
 
 	public Payer getPayer() {
-		return PayerObject;
+		return payer;
 	}
 
 	public Instrument getInstrument() {
-		return InstrumentObject;
+		return instrument;
 	}
 
 	public String getIpAddress() {
@@ -35,16 +57,16 @@ public class TokenizeRequest {
 
 	// Setter Methods
 
-	public void setAuth(Auth authObject) {
-		this.AuthObject = authObject;
+	public void setAuth(Auth auth) {
+		this.auth = auth;
 	}
 
-	public void setPayer(Payer payerObject) {
-		this.PayerObject = payerObject;
+	public void setPayer(Payer payer) {
+		this.payer = payer;
 	}
 
-	public void setInstrument(Instrument instrumentObject) {
-		this.InstrumentObject = instrumentObject;
+	public void setInstrument(Instrument instrument) {
+		this.instrument = instrument;
 	}
 
 	public void setIpAddress(String ipAddress) {

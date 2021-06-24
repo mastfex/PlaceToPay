@@ -4,7 +4,18 @@ public class To {
 	private String total;
     private String currency;
 
-    public String getTotal ()
+    public To(String total, String currency) {
+		super();
+		this.total = total;
+		this.currency = currency;
+	}
+
+	public To() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getTotal ()
     {
         return total;
     }

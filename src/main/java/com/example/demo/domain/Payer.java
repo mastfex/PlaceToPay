@@ -7,6 +7,18 @@ public class Payer {
 
 	// Getter Methods
 
+	public Payer(String name, String surname, String email) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+	}
+
+	public Payer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName() {
 		return name;
 	}

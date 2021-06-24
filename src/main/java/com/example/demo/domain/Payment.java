@@ -1,8 +1,11 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Payment {
 	private String reference;
 	private	String description;
+	@JsonProperty("amount")
 	private Amount amount;
 	public Payment() {
 		super();

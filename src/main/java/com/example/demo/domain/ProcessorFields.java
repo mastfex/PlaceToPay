@@ -2,25 +2,32 @@ package com.example.demo.domain;
 
 public class ProcessorFields {
 	private String b24;
-    private String id;
+	private String id;
 
-    public String getB24 ()
-    {
-        return b24;
-    }
+	public ProcessorFields(String b24, String id) {
+		super();
+		this.b24 = b24;
+		this.id = id;
+	}
 
-    public void setB24 (String b24)
-    {
-        this.b24 = b24;
-    }
+	public ProcessorFields() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public String getId ()
-    {
-        return id;
-    }
+	public String getB24() {
+		return b24;
+	}
 
-    public void setId (String id)
-    {
-        this.id = id;
-    }
+	public void setB24(String b24) {
+		this.b24 = b24;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 }

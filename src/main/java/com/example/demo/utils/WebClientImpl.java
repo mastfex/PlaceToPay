@@ -30,7 +30,6 @@ public class WebClientImpl {
 		        .log();
 				
 
-
 	}
 
     public Mono<List<ProcessResponse>> processWebClient(com.example.demo.request.ProcessRequest json) {
@@ -48,6 +47,7 @@ public class WebClientImpl {
 
     
     public Mono<List<QueryResponse>>  queryWebClient(QueryRequest json) {
+    	
     	WebClient clientFlux = WebClient.builder().baseUrl("https://test.placetopay.ec/rest").build();
 		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/query").build())
 		        .accept(MediaType.APPLICATION_JSON)
@@ -62,7 +62,7 @@ public class WebClientImpl {
     
     public Mono<List<MpiLookupResponse>>  lookupWebClient(MpiLookupRequest json) {
     	WebClient clientFlux = WebClient.builder().baseUrl("https://test.placetopay.ec/rest").build();
-		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/mpi/query").build())
+		return clientFlux.post().uri(uriBuilder -> uriBuilder.path("/gateway/mpi/lookup").build())
 		        .accept(MediaType.APPLICATION_JSON)
 		        .contentType(MediaType.APPLICATION_JSON)
 				.body(Mono.just(json), MpiLookupRequest.class)

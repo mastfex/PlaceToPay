@@ -1,11 +1,27 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Conversion {
+	@JsonProperty("from")
 	private From from;
+	@JsonProperty("to")
     private To to;
     private String factor;
 
-    public From getFrom ()
+    public Conversion(From from, To to, String factor) {
+		super();
+		this.from = from;
+		this.to = to;
+		this.factor = factor;
+	}
+
+	public Conversion() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public From getFrom ()
     {
         return from;
     }

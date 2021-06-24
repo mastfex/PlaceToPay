@@ -6,7 +6,20 @@ public class Status {
     private String message;
     private String status;
 
-    public String getDate ()
+    public Status(String date, String reason, String message, String status) {
+		super();
+		this.date = date;
+		this.reason = reason;
+		this.message = message;
+		this.status = status;
+	}
+
+	public Status() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getDate ()
     {
         return date;
     }

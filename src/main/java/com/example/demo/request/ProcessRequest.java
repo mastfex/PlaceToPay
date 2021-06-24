@@ -3,17 +3,17 @@ package com.example.demo.request;
 import com.example.demo.domain.Auth;
 import com.example.demo.domain.Instrument;
 import com.example.demo.domain.Payment;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ProcessRequest {
+	@JsonProperty("auth")
 	private Auth auth;
-	
 	@JsonProperty("payment")
 	private Payment payment;
-	
 	@JsonProperty("instrument")
 	private Instrument instrument;
-	
 	private String ipAddress;
     private String userAgent;
     private String additional;
@@ -21,8 +21,6 @@ public class ProcessRequest {
 	public ProcessRequest() {
 		super();
 	}
-
-
 
 	public ProcessRequest(Auth auth, Payment payment, Instrument instrument, String ipAddress, String userAgent,
 			String additional) {
