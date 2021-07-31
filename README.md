@@ -1,7 +1,7 @@
 # PlaceToPay
 
 
-Contiene una serie de métodos que consumen los servicios placeToPay, dentro de estos servicios se pueden encontrar_
+Contiene una serie de métodos que consumen los servicios placeToPay, dentro de estos servicios se pueden encontrar:
 
 1. Tokenize: Servicio que se encarga de tokenizar una tarjeta de débito y crédito. 
 2. ProcessTransaction: Servicio que permite realizar compra en un comercio con una tarjeta tokenizada.
